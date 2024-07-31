@@ -171,7 +171,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/f4882f96-fa17-4763-a115-46d93fd8063c")
 		(sheetname "Stammblatt")
-		(sheetfile "PokerPlaques2.kicad_sch")
+		(sheetfile "PokerPlaque.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -1.527064 -1.36)
@@ -384,7 +384,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/a3269cbe-f7c3-4e62-a9b7-9056a06731b1")
 		(sheetname "Stammblatt")
-		(sheetfile "PokerPlaques2.kicad_sch")
+		(sheetfile "PokerPlaque.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -0.79 -1.399)
@@ -626,7 +626,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/47f2a025-7cfa-4881-a18e-ba26d824401e")
 		(sheetname "Stammblatt")
-		(sheetfile "PokerPlaques2.kicad_sch")
+		(sheetfile "PokerPlaque.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 4.1 -1.33)
@@ -1969,7 +1969,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/14e06e64-1dab-47f7-b015-5775f37e5f5b")
 		(sheetname "Stammblatt")
-		(sheetfile "PokerPlaques2.kicad_sch")
+		(sheetfile "PokerPlaque.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.44 3.87)
@@ -2526,7 +2526,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/7c967361-dd09-4984-820e-c36f23808c7d")
 		(sheetname "Stammblatt")
-		(sheetfile "PokerPlaques2.kicad_sch")
+		(sheetfile "PokerPlaque.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 10.1 8)
@@ -3345,7 +3345,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/011fa763-7b3a-4aae-91c9-5470a2f7cc57")
 		(sheetname "Stammblatt")
-		(sheetfile "PokerPlaques2.kicad_sch")
+		(sheetfile "PokerPlaque.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 10.1 10.54)
@@ -4295,7 +4295,7 @@
 		(property ki_fp_filters "VQFN*1EP*3x3mm*P0.4mm*")
 		(path "/1a6c2fca-cc20-4138-96e9-a013907f9cc3")
 		(sheetname "Stammblatt")
-		(sheetfile "PokerPlaques2.kicad_sch")
+		(sheetfile "PokerPlaque.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -1.61 -1.16)
