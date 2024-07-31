@@ -108,7 +108,7 @@
 		(descr "Through hole angled pin header, 1x05, 2.54mm pitch, 6mm pin length, single row")
 		(tags "Through hole angled pin header THT 1x05 2.54mm single row")
 		(property "Reference" "J1"
-			(at 4.385 -2.27 360)
+			(at 4.385 -2.27 0)
 			(layer "F.SilkS")
 			(uuid "54a54810-0417-437a-a06c-b52e87f1af1e")
 			(effects
@@ -119,7 +119,7 @@
 			)
 		)
 		(property "Value" "Conn_01x05_Pin"
-			(at 4.385 12.43 360)
+			(at 4.385 12.43 0)
 			(layer "F.Fab")
 			(uuid "54484974-8e8b-4a6c-bad4-fe57f960f14e")
 			(effects
@@ -1564,7 +1564,7 @@
 			(uuid "c64fef3c-d7f1-4c7c-976b-cbc07a3aa7b4")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 2.77 1.27 360)
+			(at 2.77 1.27 0)
 			(layer "F.Fab")
 			(uuid "50b3c363-424e-4a7e-83b6-09b015b355eb")
 			(effects
@@ -3428,7 +3428,7 @@
 			(uuid "32361da5-4ad1-44fe-86e9-3c04d0ad7b0d")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 2.77 3.81 360)
+			(at 2.77 3.81 0)
 			(layer "F.Fab")
 			(uuid "0bdea454-c85a-4648-bfe1-ef37f53e29ea")
 			(effects
@@ -4727,7 +4727,7 @@
 			(uuid "4e52c12e-5da6-4ca7-b3ff-72e47e2f6b63")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 2.77 8.89 360)
+			(at 2.77 8.89 0)
 			(layer "F.Fab")
 			(uuid "a10e2877-ba2d-4350-aaec-a88fb8e45bcf")
 			(effects
@@ -4839,7 +4839,7 @@
 	)
 	(gr_rect
 		(start 26 50)
-		(end 80 93)
+		(end 76 93)
 		(stroke
 			(width 0.05)
 			(type default)
@@ -4847,6 +4847,31 @@
 		(fill none)
 		(layer "Edge.Cuts")
 		(uuid "e997185d-d21d-45b3-b1e4-b4cdb9add13b")
+	)
+	(gr_text "PokerPassion (Poker-NG)\nPCB designed by PatchByte\nhttps://github.com/Poker-NG/Plaque"
+		(at 74 72 90)
+		(layer "F.SilkS")
+		(uuid "26312a9e-6dc7-4652-b07f-65d94854115a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "Status LED"
+		(at 38 89 90)
+		(layer "F.SilkS")
+		(uuid "d9d159c1-d8d1-461d-bb62-64be1db1cb1d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
 	)
 	(segment
 		(start 50.4 77)
