@@ -4426,6 +4426,25 @@
 		)
 		(uuid "12db4fcd-53a0-4bd1-94a7-3ae4fcddea22")
 	)
+	(text_box "Note we need to change RST to have a pull-down resistor + exposing the pin + maybe a button?"
+		(exclude_from_sim no)
+		(at 162.56 135.89 0)
+		(size 52.07 13.97)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "440a8dc3-837a-4478-993d-b9700c318bbc")
+	)
 	(text "Display Pins"
 		(exclude_from_sim no)
 		(at 223.012 71.374 0)
