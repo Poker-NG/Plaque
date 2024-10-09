@@ -17,7 +17,6 @@ crc16_t crc16_compute(unsigned char* buffer_data, unsigned int buffer_size, crc1
     {
         unsigned char current_data = *buffer_data++;
         crc16_update(current_data, &checksum);
-        //buffer_data++;
     } while (--buffer_size);
 
     return checksum;

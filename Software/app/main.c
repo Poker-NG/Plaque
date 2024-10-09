@@ -6,8 +6,8 @@
 #include "epd.h"
 #include "i2c.h"
 #include "st25.h"
-#include "tests.h"
 #include "system.h"
+#include "tests.h"
 
 #include <malloc.h>
 #include <string.h>
@@ -41,7 +41,25 @@ int main(void)
     {
         LOG_DEBUG("Initialized st25.");
         LOG_DEBUG("st25_context_is_connected: %s.", st25_context_is_connected(&st25_instance) == true ? "yes" : "no");
-        LOG_DEBUG("st25_context_get_device_revision: %u\r\n", st25_context_get_device_revision(&st25_instance));
+        LOG_DEBUG("st25_context_get_device_revision: %u", st25_context_get_device_revision(&st25_instance));
+
+        unsigned char uid[8];
+
+        if (st25_context_get_device_uid(&st25_instance, uid) == true)
+        {
+            LOG_DEBUG("st25_context_get_device_uid:");
+            printf("   ");
+            for (int i = 0; i < sizeof(uid); i++)
+            {
+                printf("%02x ", uid[i]);
+                if (i != 0 && ((i + 1) % 32) == 0)
+                {
+                    printf("\r\n");
+                    printf("   ");
+                }
+            }
+            LOG_FLUSH();
+        }
     }
 
     // epd
@@ -91,13 +109,19 @@ int main(void)
     test_run_st25(&st25_instance);
     LOG_FLUSH();
 
+    LOG_DEBUG("Turning LED on for 500ms.");
+    debug_led_init();
+    DEBUG_LED_ON();
+    clock_delay_ms(500);
+    DEBUG_LED_OFF();
+
     LOG_DEBUG("Entering loop.");
     while (true)
     {
         if (st25_context_is_rf_field_detected(&st25_instance) == true)
         {
             LOG_DEBUG("RF field detected.");
-            clock_delay_ms(2000);
+            clock_delay_ms(400);
         }
     }
 }

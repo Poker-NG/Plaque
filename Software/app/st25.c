@@ -7,6 +7,7 @@
 #define ST25_I2C_MAX_RETRIES 12
 #define ST25_I2C_MAX_CHUNK_BYTES 32
 
+#define ST25_REG_UID 0x0018
 #define ST25_REG_IC_REV 0x0020
 
 #define ST25_DYN_REG_EH_CTRL_DYN 0x2002
@@ -139,6 +140,16 @@ unsigned char st25_context_get_device_revision(st25_context_t* instance)
     }
 
     return reg;
+}
+
+bool st25_context_get_device_uid(st25_context_t* instance, unsigned char* uid)
+{
+    if (st25_context_io_read_multiple_bytes(instance, instance->i2c_address_system, ST25_REG_UID, 8, uid) != st25_errors_none)
+    {
+        return 0;
+    }
+
+    return true;
 }
 
 bool st25_context_is_rf_field_detected(st25_context_t* instance)

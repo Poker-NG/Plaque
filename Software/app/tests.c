@@ -40,7 +40,8 @@ void test_run_external_eeprom(external_eeprom_context_t* external_eeprom)
 
     external_eeprom_context_read_bytes(external_eeprom, 0, data, sizeof(data));
 
-    LOG_DEBUG("Dump of 0x0 - 0x%x\r\n   ", sizeof(data));
+    LOG_DEBUG("Dump of 0x0 - 0x%x", sizeof(data));
+    printf("   ");
 
     for (int i = 0; i < sizeof(data); i++)
     {
@@ -64,7 +65,8 @@ void test_run_st25(st25_context_t* st25)
     res = st25_context_io_read_multiple_bytes(st25, st25->i2c_address_data, 0x0, sizeof(buffer), buffer);
     LOG_DEBUG("st25_context_io_read_multiple_bytes: %i", res);
 
-    LOG_DEBUG("Dump of 0x0 - 0x%x\r\n   ", sizeof(buffer));
+    LOG_DEBUG("Dump of 0x0 - 0x%x", sizeof(buffer));
+    printf("   ");
     for (int i = 0; i < sizeof(buffer); i++)
     {
         printf("%02x ", buffer[i]);

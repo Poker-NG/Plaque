@@ -24,6 +24,7 @@ bool st25_context_is_connected(st25_context_t* instance);
 int st25_context_io_read_multiple_bytes(st25_context_t* instance, unsigned char address, unsigned short register_address, unsigned int length, unsigned char* data);
 int st25_context_io_write_multiple_bytes(st25_context_t* instance, unsigned char address, unsigned short register_address, unsigned char* data, unsigned int length);
 unsigned char st25_context_get_device_revision(st25_context_t* instance);
+bool st25_context_get_device_uid(st25_context_t* instance, unsigned char* uid);
 bool st25_context_is_rf_field_detected(st25_context_t* instance);
 
 #endif // !_APP_ST25_H
