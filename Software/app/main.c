@@ -5,13 +5,14 @@
 #include "eeprom.h"
 #include "epd.h"
 #include "i2c.h"
+#include "rng.h"
 #include "st25.h"
 #include "system.h"
 #include "tests.h"
 
 #include <malloc.h>
+#include <stdlib.h>
 #include <string.h>
-#include <sys/reent.h>
 
 static external_eeprom_context_t eeprom_instance = {0};
 static st25_context_t st25_instance = {0};
@@ -115,13 +116,33 @@ int main(void)
     clock_delay_ms(500);
     DEBUG_LED_OFF();
 
+    LOG_DEBUG("Intitializing rng.");
+    rng_init();
+    rng_do_seed_long();
+
     LOG_DEBUG("Entering loop.");
+
+    clock_tick_t timer_1 = clock_get_tick();
+    clock_tick_t timer_2 = clock_get_tick();
+
     while (true)
     {
         if (st25_context_is_rf_field_detected(&st25_instance) == true)
         {
             LOG_DEBUG("RF field detected.");
             clock_delay_ms(400);
+        }
+
+        if (clock_tick_compare_is_timeout(timer_1, 4000))
+        {
+            timer_1 = clock_get_tick();
+            LOG_DEBUG("rng: %x", rand());
+        }
+
+        if (clock_tick_compare_is_timeout(timer_2, 9000))
+        {
+            timer_2 = clock_get_tick();
+            rng_do_seed_quick();
         }
     }
 }
