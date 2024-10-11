@@ -3,6 +3,8 @@
 #include "debug_utils.h"
 #include "i2c.h"
 #include "st25.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 void test_run_external_eeprom(external_eeprom_context_t* external_eeprom)
@@ -96,4 +98,27 @@ void test_run_st25(st25_context_t* st25)
     time_taken = clock_get_tick() - time_taken;
 
     LOG_DEBUG("Took: %i ms", (unsigned int)time_taken);
+}
+
+void test_run_epd(epd_context_t* epd)
+{
+    LOG_DEBUG("EPD drawing random matrix.");
+
+    epd_context_display_clear_frame_memory(epd, 0xFF);
+    for (int i = 0; i < 64; i++)
+    {
+        unsigned char matrix[1 * 8] = {
+            0b10101010, // L0
+            0b01010101, // L1
+            0b10101010, // L2
+            0b01010101, // L3
+            0b10101010, // L4
+            0b01010101, // L5
+            0b10101010, // L6
+            0b01010101, // L7
+        };
+
+        epd_context_display_set_frame_memory(epd, matrix, rand() % 128, rand() % 296, 8, 8);
+    }
+    epd_context_display_frame(epd);
 }

@@ -106,9 +106,13 @@ int main(void)
     LOG_DEBUG("Fully initialized.", );
     LOG_DEBUG("Current Tick: %u", (unsigned int)(clock_get_tick() & UINT32_MAX));
 
+    LOG_DEBUG("Intitializing rng.");
+    rng_init();
+    rng_do_seed_long();
+
     test_run_external_eeprom(&eeprom_instance);
     test_run_st25(&st25_instance);
-    LOG_FLUSH();
+    test_run_epd(&epd_instance);
 
     LOG_DEBUG("Turning LED on for 500ms.");
     debug_led_init();
@@ -116,14 +120,15 @@ int main(void)
     clock_delay_ms(500);
     DEBUG_LED_OFF();
 
-    LOG_DEBUG("Intitializing rng.");
-    rng_init();
-    rng_do_seed_long();
-
     LOG_DEBUG("Entering loop.");
 
     clock_tick_t timer_1 = clock_get_tick();
     clock_tick_t timer_2 = clock_get_tick();
+
+    extern char _end[];
+    extern char _heap_end[];
+
+    LOG_DEBUG("Heap Left: %u.", (unsigned int)((unsigned long long)_heap_end - (unsigned long long)_end));
 
     while (true)
     {
